@@ -21,6 +21,7 @@
     "@types/mongoose": "*",
     "concurrently": "^5.0.0",
     "nodemon": "^1.19.4",
+    "tslint": "*",
     "typescript": "*",
     "ts-jest": "*",
     "jest": "*"

@@ -41,11 +41,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var mongoose_1 = __importDefault(require("mongoose"));
+var body_parser_1 = __importDefault(require("body-parser"));
+var routes_1 = require("./routes");
 var app = express_1.default();
 app.set('port', 5757);
-app.get('/', function (req, res, next) {
-    res.send('Hello World!');
-});
+app.use(body_parser_1.default.json());
+app.use('/', routes_1.routes);
 var PORT = app.get('port');
 var runServer = function () { return __awaiter(void 0, void 0, void 0, function () {
     var e_1;

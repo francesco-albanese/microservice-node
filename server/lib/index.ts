@@ -1,13 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+
+import { routes } from './routes';
 
 const app = express();
 
 app.set('port', 5757);
 
-app.get('/', (req, res, next) => {
-	res.send('Hello World!');
-});
+app.use(bodyParser.json());
+app.use('/', routes);
 
 const PORT = app.get('port');
 

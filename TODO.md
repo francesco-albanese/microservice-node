@@ -8,6 +8,7 @@
 - run tslint in books
 - run tslint in customers
 - run tslint in orders
+- add proper types where required
 
 ## Test
 
@@ -19,6 +20,8 @@
 - add unit test for CRUD operations of Order model
 
 ## Features
+
+- complete tutorial features
 
 ## Tutorial:
 

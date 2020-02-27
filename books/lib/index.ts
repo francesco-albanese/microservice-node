@@ -15,7 +15,7 @@ const PORT = app.get('port');
 
 const runServer = async () => {
 	try {
-		await mongoose.connect('mongodb://mongodb_docker:27017/microservices', {
+		await mongoose.connect('mongodb://mongodb_docker:27017/books', {
 			useNewUrlParser: true,
 			useUnifiedTopology: true
 		});

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import BookModel from './../models/Book';
+import BookModel from '../models/Book';
 
 export async function fetchBooks(req: Request, res: Response) {
 	try {

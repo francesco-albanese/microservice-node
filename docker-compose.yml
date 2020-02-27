@@ -1,11 +1,11 @@
 version: '3.7'
 
 services:
-  nodejs_app:
-    container_name: nodejs_microservice
+  books_app:
+    container_name: books_microservice
     restart: always
-    build: ./server
-    image: francescolbn/nodejs_microservice
+    build: ./books
+    image: francescolbn/books_microservice
     ports: ['5757:5757']
     entrypoint: '/bin/bash -c'
     command:
@@ -15,7 +15,19 @@ services:
     links:
       - mongodb_docker
     volumes:
-      - ./server:/app:delegated
+      - ./books:/app:delegated
+
+  customers_app:
+    container_name: customers_microservice
+    restart: always
+    build: ./customers
+    image: francescolbn/customers_microservice
+    ports: ['7575:7575']
+    entrypoint: '/bin/bash -c'
+    command:
+      - |
+        npm install
+        npm start
 
   mongodb_docker:
     container_name: mongodb_container

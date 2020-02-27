@@ -28,6 +28,26 @@ services:
       - |
         npm install
         npm start
+    links:
+      - mongodb_docker
+    volumes:
+      - ./customers:/app:delegated
+
+  orders_app:
+    container_name: orders_microservice
+    restart: always
+    build: ./orders
+    image: francescolbn/orders_microservice
+    ports: ['7777:7777']
+    entrypoint: '/bin/bash -c'
+    command:
+      - |
+        npm install
+        npm start
+    links:
+      - mongodb_docker
+    volumes:
+      - ./orders:/app/orders:delegated
 
   mongodb_docker:
     container_name: mongodb_container

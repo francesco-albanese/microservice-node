@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The purpose of this project is to create a microservice in Node using Express and TypeScript, experimenting with Docker.
+The purpose of this project is to create a simple microservice in Node using Express and TypeScript, experimenting with Docker.
 
 ## How to run the app
 
@@ -10,4 +10,4 @@ The purpose of this project is to create a microservice in Node using Express an
 docker-compose up --build --force-recreate
 ```
 
-Docker will create two separate containers, one for the nodejs app and one for mongodb.
+Docker will create separate containers for nodejs applications and mongodb image.

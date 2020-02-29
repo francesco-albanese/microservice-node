@@ -3,8 +3,6 @@
 ## Cleanup
 
 - cleanup orders
-- cleanup controllers
-- cleanup middlewares
 - run tslint in books
 - run tslint in customers
 - run tslint in orders

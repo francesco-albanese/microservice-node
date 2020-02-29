@@ -1,19 +1,19 @@
 import { isValidObjectId } from 'mongoose';
 import { Request, Response } from 'express';
 
-import CustomerModel from '../models/Customer';
+import OrderModel from '../models/Order';
 
-export async function deleteCustomer(req: Request, res: Response) {
+export async function deleteOrder(req: Request, res: Response) {
 	const { id } = req.params;
 	try {
 		if (isValidObjectId(id)) {
-			const deletedCustomer = await CustomerModel.findByIdAndDelete(id);
-			if (deletedCustomer) {
-				return res.status(200).json(deletedCustomer);
+			const deletedOrder = await OrderModel.findByIdAndDelete(id);
+			if (deletedOrder) {
+				return res.status(200).json(deletedOrder);
 			}
 			return res.status(404).json({
 				error: {
-					message: `Customer with id: ${id} could not be found!`
+					message: `Order with id: ${id} could not be found!`
 				}
 			});
 		}

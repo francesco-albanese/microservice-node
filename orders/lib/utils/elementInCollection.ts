@@ -1,15 +1,14 @@
-interface Collection {
-	_id: string;
-}
+import { Book } from '../middlewares/getBooks';
+import { Customer } from '../middlewares/getCustomers';
 
 interface Argument {
 	element: string;
-	collection: Collection[];
+	collection: Book[] | Customer[];
 }
 
 export function elementInCollection({
 	element,
 	collection = []
 }: Argument): boolean {
-	return collection.some(({ _id }) => _id === element);
+	return collection.some(({ _id }: { _id: string }) => _id === element);
 }

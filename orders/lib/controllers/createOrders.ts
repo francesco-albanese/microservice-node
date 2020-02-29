@@ -1,14 +1,22 @@
 import { Request, Response } from 'express';
 import { Types } from 'mongoose';
 
+import { CustomerRequest, Customer } from './../middlewares/getCustomers';
 import { elementInCollection } from './../utils/elementInCollection';
 import OrderModel, { Order } from '../models/Order';
+import { BookRequest, Book } from '../middlewares/getBooks';
 
 export async function createOrders(req: Request, res: Response) {
 	const { customerID, bookID, initialDate, deliveryDate } = req.body;
 	if (
-		!elementInCollection({ element: customerID, collection: req.customers }) ||
-		!elementInCollection({ element: bookID, collection: req.books })
+		!elementInCollection({
+			element: customerID,
+			collection: (req as CustomerRequest).customers as Customer[]
+		}) ||
+		!elementInCollection({
+			element: bookID,
+			collection: (req as BookRequest).books as Book[]
+		})
 	) {
 		return res.status(400).json({
 			error: {
